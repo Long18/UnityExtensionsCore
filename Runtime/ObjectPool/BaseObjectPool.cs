@@ -6,7 +6,10 @@ namespace long18.ExtensionsCore.ObjectPool
     public abstract class BaseObjectPool<TItem> : MonoBehaviour where TItem : MonoBehaviour
     {
         [SerializeField] protected TItem _prefab;
-
+        [SerializeField] protected int _defaultPoolSize;
+        [SerializeField] protected int _maxPoolSize;
+        [SerializeField] protected bool _collectionCheck;
+        
         // Performane is better if this is false
         [Tooltip("If order is needed item will be set at first child when being getted")]
         [SerializeField] private bool _isOrderNeeded;
@@ -16,7 +19,7 @@ namespace long18.ExtensionsCore.ObjectPool
         protected virtual void Awake()
         {
             _pool = new ObjectPool<TItem>(OnCreateItem, OnGetItem, OnReleaseItem,
-                OnDestroyItem);
+                OnDestroyItem,_collectionCheck,_defaultPoolSize,_maxPoolSize);
         }
 
         protected virtual TItem OnCreateItem()
