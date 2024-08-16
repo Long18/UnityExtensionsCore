@@ -1,6 +1,6 @@
 {
   "name": "com.long18.extensions-core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "displayName": "Extensions Core",
   "author": { "name": "Thành Long - William", "url": "https://long18.github.io/" },
   "description": "Common extenstions core when develop with Unity",
